@@ -1,21 +1,44 @@
 const WineModel = require("../models/wine.model");
 
-module.exports.addWine = async (req, res) => {
+exports.addWine = async (req, res) => {
   console.log(req.body);
-  const { name, price, color, domain, description, quantity, imageUrl } =
-    req.body;
+  const {
+    name,
+    region,
+    appellation,
+    format,
+    color,
+    domain,
+    year,
+    quantity,
+    guard,
+    grape,
+    label,
+    degree,
+    description,
+    imageUrl,
+    price,
+  } = req.body;
 
   try {
     const wine = await WineModel.create({
       name,
-      price,
+      region,
+      appellation,
+      format,
       color,
       domain,
-      description,
+      year,
       quantity,
+      guard,
+      grape,
+      label,
+      degree,
+      description,
       imageUrl,
+      price,
     });
-    res.status(201).json({ wine: wine._id });
+    res.status(201).json({ message: `Wine ${wine._id} created !` });
   } catch (err) {
     res.status(200).json({ err });
   }
