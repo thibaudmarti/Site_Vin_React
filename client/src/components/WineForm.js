@@ -169,10 +169,17 @@ const WineForm = () => {
       <br />
       <label htmlFor="description">Description du vin</label>
       <br />
-      <input
+      {/* <input
         type="text"
         name="description"
         id="description"
+        onChange={(e) => setWineDescription(e.target.value)}
+        value={description}
+      /> */}
+      <textarea
+        name="description"
+        id="description"
+        placeholder="Écrivez votre description."
         onChange={(e) => setWineDescription(e.target.value)}
         value={description}
       />
