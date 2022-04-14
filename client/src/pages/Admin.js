@@ -1,7 +1,12 @@
 import React from "react";
+import WineForm from "../components/WineForm";
 
 const Admin = () => {
-  return <div>Admin</div>;
+  return (
+    <>
+      <WineForm />
+    </>
+  );
 };
 
 export default Admin;
