@@ -1,9 +1,27 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import WineCard from "./WineCard";
 
 const WineContainer = () => {
+  const [wines, setWines] = useState(null);
+
+  useEffect(() => {
+    const getWines = async () => {
+      await axios.get(`http://localhost:4000/api/wine/`).then((res) => {
+        console.log(res.data);
+        return setWines(res.data);
+      });
+    };
+
+    getWines();
+  }, []);
+
   return (
     <div>
-      <h1>Wine container</h1>
+      {wines &&
+        wines.map((wine) => {
+          return <WineCard wine={wine} key={wine._id} />;
+        })}
     </div>
   );
 };
