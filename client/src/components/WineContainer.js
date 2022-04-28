@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import WineCard from "./WineCard";
+import WineHeadFilter from "./WineHeadFilter";
 
 const WineContainer = () => {
   const [wines, setWines] = useState(null);
@@ -18,6 +19,7 @@ const WineContainer = () => {
 
   return (
     <div>
+      {wines && <WineHeadFilter wines={wines} />}
       {wines &&
         wines.map((wine) => {
           return <WineCard wine={wine} key={wine._id} />;

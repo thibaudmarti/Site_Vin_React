@@ -5,7 +5,7 @@ import WineForm from "../components/WineForm";
 const Admin = () => {
   return (
     <>
-      <WineForm />
+      {/* <WineForm /> */}
       <WineContainer />
     </>
   );
