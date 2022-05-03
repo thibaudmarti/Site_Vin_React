@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import RegionButton from "./RegionButton";
 
 const WineHeadFilter = ({ wines }) => {
   const [winesRegion, setWinesRegion] = useState("");
@@ -41,8 +42,8 @@ const WineHeadFilter = ({ wines }) => {
       <h1>WineHeadfilter</h1>
       <p>{wines[0].name}</p>
       {winesRegion &&
-        winesRegion.forEach((wineRegion) => {
-          return <button>{wineRegion}</button>;
+        winesRegion.map((wineRegion) => {
+          return <RegionButton region={wineRegion} key={wineRegion} />;
         })}
     </div>
   );
